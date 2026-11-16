@@ -1,6 +1,77 @@
 // Kafea Budapest - Main Interactive Script & Showstopper Motion
 
 document.addEventListener('DOMContentLoaded', () => {
+  // 0. Cinematic Coffee Pouring Intro Lifecycle
+  const coffeeIntro = document.getElementById('coffeeIntro');
+  const skipIntroBtn = document.getElementById('skipIntroBtn');
+  const replayIntroBtn = document.getElementById('replayIntroBtn');
+  let introTimer = null;
+
+  function dismissIntro() {
+    if (!coffeeIntro || coffeeIntro.classList.contains('fade-out')) return;
+    coffeeIntro.classList.add('fade-out');
+    clearTimeout(introTimer);
+    setTimeout(() => {
+      if (coffeeIntro.classList.contains('fade-out')) {
+        coffeeIntro.style.display = 'none';
+      }
+    }, 750);
+  }
+
+  function playIntro() {
+    if (!coffeeIntro) return;
+    coffeeIntro.style.display = 'flex';
+    // Small delay to ensure display: flex is painted before removing fade-out
+    requestAnimationFrame(() => {
+      coffeeIntro.classList.remove('fade-out');
+
+      // Force CSS animation restart on SVG & progress elements
+      const animatedEls = coffeeIntro.querySelectorAll(
+        '.pour-stream-line, .coffee-fill-rect, .crema-ellipse, .steam-tendril, .intro-progress-fill, .intro-text-wrapper'
+      );
+      animatedEls.forEach(el => {
+        el.style.animation = 'none';
+        void el.offsetWidth; // trigger reflow
+        el.style.animation = '';
+      });
+
+      clearTimeout(introTimer);
+      introTimer = setTimeout(dismissIntro, 2200);
+    });
+  }
+
+  if (coffeeIntro) {
+    // Auto-dismiss after 2.2 seconds of liquid pouring & crema rising
+    introTimer = setTimeout(dismissIntro, 2200);
+
+    // Tap or click anywhere on overlay to skip
+    coffeeIntro.addEventListener('click', (e) => {
+      dismissIntro();
+    });
+
+    if (skipIntroBtn) {
+      skipIntroBtn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        dismissIntro();
+      });
+    }
+
+    // Dismiss with Escape key
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && coffeeIntro && !coffeeIntro.classList.contains('fade-out')) {
+        dismissIntro();
+      }
+    });
+  }
+
+  // Header Replay Button
+  if (replayIntroBtn) {
+    replayIntroBtn.addEventListener('click', (e) => {
+      e.preventDefault();
+      playIntro();
+    });
+  }
+
   // 1. Initialize i18n
   if (window.KafeaI18n) {
     window.KafeaI18n.init();
