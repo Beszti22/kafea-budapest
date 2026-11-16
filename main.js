@@ -1,8 +1,9 @@
 // Kafea Budapest - Main Interactive Script & Showstopper Motion
 
 document.addEventListener('DOMContentLoaded', () => {
-  // 0. Cinematic Coffee Pouring Intro Lifecycle
+  // 0. Cinematic Real Coffee Pouring Intro Lifecycle
   const coffeeIntro = document.getElementById('coffeeIntro');
+  const introVideo = document.getElementById('introVideo');
   const skipIntroBtn = document.getElementById('skipIntroBtn');
   const replayIntroBtn = document.getElementById('replayIntroBtn');
   let introTimer = null;
@@ -14,6 +15,9 @@ document.addEventListener('DOMContentLoaded', () => {
     setTimeout(() => {
       if (coffeeIntro.classList.contains('fade-out')) {
         coffeeIntro.style.display = 'none';
+        if (introVideo) {
+          introVideo.pause();
+        }
       }
     }, 750);
   }
@@ -21,28 +25,42 @@ document.addEventListener('DOMContentLoaded', () => {
   function playIntro() {
     if (!coffeeIntro) return;
     coffeeIntro.style.display = 'flex';
-    // Small delay to ensure display: flex is painted before removing fade-out
     requestAnimationFrame(() => {
       coffeeIntro.classList.remove('fade-out');
 
-      // Force CSS animation restart on SVG & progress elements
-      const animatedEls = coffeeIntro.querySelectorAll(
-        '.pour-stream-line, .coffee-fill-rect, .crema-ellipse, .steam-tendril, .intro-progress-fill, .intro-text-wrapper'
-      );
-      animatedEls.forEach(el => {
-        el.style.animation = 'none';
-        void el.offsetWidth; // trigger reflow
-        el.style.animation = '';
-      });
+      // Restart real footage from 0:00
+      if (introVideo) {
+        introVideo.currentTime = 0;
+        const playPromise = introVideo.play();
+        if (playPromise !== undefined) {
+          playPromise.catch(() => {});
+        }
+      }
+
+      // Force CSS animation restart on progress bar & text
+      const progressFill = coffeeIntro.querySelector('.intro-progress-fill');
+      if (progressFill) {
+        progressFill.style.animation = 'none';
+        void progressFill.offsetWidth; // trigger reflow
+        progressFill.style.animation = '';
+      }
 
       clearTimeout(introTimer);
-      introTimer = setTimeout(dismissIntro, 2200);
+      introTimer = setTimeout(dismissIntro, 2800);
     });
   }
 
   if (coffeeIntro) {
-    // Auto-dismiss after 2.2 seconds of liquid pouring & crema rising
-    introTimer = setTimeout(dismissIntro, 2200);
+    // Attempt instant autoplay on load
+    if (introVideo) {
+      const playPromise = introVideo.play();
+      if (playPromise !== undefined) {
+        playPromise.catch(() => {});
+      }
+    }
+
+    // Auto-dismiss after 2.8 seconds of authentic pour & crema formation
+    introTimer = setTimeout(dismissIntro, 2800);
 
     // Tap or click anywhere on overlay to skip
     coffeeIntro.addEventListener('click', (e) => {

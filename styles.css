@@ -1546,7 +1546,7 @@ button {
   100% { transform: translate(-50%, -50%) scale(1.15); opacity: 1; }
 }
 
-.intro-content {
+.intro-cinema-container {
   position: relative;
   z-index: 2;
   display: flex;
@@ -1554,94 +1554,76 @@ button {
   align-items: center;
   text-align: center;
   padding: 1.5rem;
-  max-width: 440px;
+  width: 100%;
+  max-width: 520px;
 }
 
-.pour-graphic-container {
-  width: 220px;
-  height: 240px;
-  margin-bottom: 1.25rem;
-  filter: drop-shadow(0 18px 30px rgba(0, 0, 0, 0.55));
+.intro-video-frame {
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  border-radius: 20px;
+  overflow: hidden;
+  position: relative;
+  margin-bottom: 1.5rem;
+  background-color: #0C0A09;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  box-shadow: 0 24px 60px -12px rgba(0, 0, 0, 0.75),
+              0 0 0 1px rgba(255, 255, 255, 0.08),
+              0 0 45px rgba(249, 115, 22, 0.22);
+  transform: translateZ(0);
 }
 
-.pour-svg {
+.intro-video-element {
   width: 100%;
   height: 100%;
-  overflow: visible;
+  object-fit: cover;
+  display: block;
+  transform: scale(1.02);
 }
 
-/* Coffee Stream Animation */
-.pour-stream-line {
-  stroke-dasharray: 220;
-  stroke-dashoffset: 220;
-  animation: pourJet 1.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+.video-vignette-overlay {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  box-shadow: inset 0 0 45px rgba(12, 10, 9, 0.65);
+  background: radial-gradient(circle at center, transparent 55%, rgba(12, 10, 9, 0.35) 100%);
 }
 
-@keyframes pourJet {
-  0% { stroke-dashoffset: 220; opacity: 1; stroke-width: 6; }
-  22% { stroke-dashoffset: 0; opacity: 1; stroke-width: 7; }
-  78% { stroke-dashoffset: 0; opacity: 1; stroke-width: 6.5; }
-  92% { stroke-dashoffset: -120; opacity: 0.8; stroke-width: 4; }
-  100% { stroke-dashoffset: -220; opacity: 0; stroke-width: 0; }
+.video-live-badge {
+  position: absolute;
+  top: 1rem;
+  left: 1rem;
+  z-index: 5;
+  background: rgba(12, 10, 9, 0.75);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  color: var(--color-orange-300);
+  font-size: 0.675rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  padding: 0.35rem 0.75rem;
+  border-radius: var(--radius-full);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  user-select: none;
 }
 
-/* Liquid filling inside cup */
-.coffee-fill-rect {
-  animation: fillCupRect 1.25s 0.28s cubic-bezier(0.22, 1, 0.36, 1) forwards;
-  transform-origin: bottom center;
+.live-pulse {
+  width: 7px;
+  height: 7px;
+  background-color: #EF4444;
+  border-radius: 50%;
+  display: inline-block;
+  box-shadow: 0 0 8px #EF4444;
+  animation: liveBadgePulse 1.4s ease-in-out infinite;
 }
 
-.crema-ellipse {
-  animation: fillCremaSurface 1.25s 0.28s cubic-bezier(0.22, 1, 0.36, 1) forwards;
-}
-
-@keyframes fillCupRect {
-  0% { y: 190; height: 0; }
-  100% { y: 124; height: 80px; }
-}
-
-@keyframes fillCremaSurface {
-  0% { cy: 190; rx: 30; opacity: 0; }
-  30% { opacity: 1; }
-  100% { cy: 124; rx: 50; opacity: 1; }
-}
-
-/* Steam rising */
-.steam-tendril {
-  opacity: 0;
-  stroke-dasharray: 90;
-  stroke-dashoffset: 90;
-}
-
-.steam-1 {
-  animation: steamDrift 2.2s 1.05s ease-out infinite;
-}
-
-.steam-2 {
-  animation: steamDrift 2.4s 1.2s ease-out infinite;
-}
-
-.steam-3 {
-  animation: steamDrift 2.1s 1.35s ease-out infinite;
-}
-
-@keyframes steamDrift {
-  0% {
-    opacity: 0;
-    stroke-dashoffset: 90;
-    transform: translateY(0px) scale(0.95);
-  }
-  30% {
-    opacity: 0.8;
-  }
-  80% {
-    opacity: 0.4;
-  }
-  100% {
-    opacity: 0;
-    stroke-dashoffset: -90;
-    transform: translateY(-24px) scale(1.15);
-  }
+@keyframes liveBadgePulse {
+  0% { transform: scale(0.9); opacity: 0.7; }
+  50% { transform: scale(1.2); opacity: 1; }
+  100% { transform: scale(0.9); opacity: 0.7; }
 }
 
 /* Typography & Tagline */
@@ -1703,7 +1685,7 @@ button {
   height: 100%;
   background: linear-gradient(90deg, #F97316, #FED7AA);
   border-radius: var(--radius-full);
-  animation: introProgress 2.1s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+  animation: introProgress 2.8s cubic-bezier(0.25, 1, 0.5, 1) forwards;
 }
 
 @keyframes introProgress {
