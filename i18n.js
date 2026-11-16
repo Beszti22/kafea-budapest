@@ -13,7 +13,7 @@ const translations = {
     "nav.openStatus": "Nyitva ma: 07:30 – 18:00",
 
     // Hero Section
-    "hero.badge": "☀️ Budapest IX. • Tűzoltó utca 33.",
+    "hero.badge": "☀️ Budapest IX. • Tűzoltó utca 49-53.",
     "hero.title": "Specialty kávék és lassú reggelik a Tűzoltó utcában.",
     "hero.desc": "Kézműves brunch, dűlőszelektált specialty kávék és frissen sült kovászos péksütemények a Ferencváros szívében – a Klinikák közvetlen szomszédságában.",
     "hero.ctaMenu": "Kínálatunk megtekintése",
@@ -138,7 +138,7 @@ const translations = {
     "location.badge": "HELYSZÍN & MEGKÖZELÍTÉS",
     "location.title": "Hol találsz meg minket?",
     "location.address.title": "Címünk",
-    "location.address.val": "1094 Budapest, Tűzoltó utca 33.",
+    "location.address.val": "1094 Budapest, Tűzoltó utca 49-53.",
     "location.address.sub": "Semmelweis Klinikák M3 metrótól 2 perc kényelmes séta",
     "location.hours.title": "Nyitvatartás",
     "location.hours.weekdays": "Hétfő – Péntek: 07:30 – 18:00",
@@ -167,7 +167,7 @@ const translations = {
     "nav.openStatus": "Open today: 07:30 – 18:00",
 
     // Hero Section
-    "hero.badge": "☀️ Budapest IX. • Tűzoltó str. 33.",
+    "hero.badge": "☀️ Budapest IX. • Tűzoltó str. 49-53.",
     "hero.title": "Specialty coffee & relaxed brunch in Tűzoltó street.",
     "hero.desc": "Artisanal brunch, single-origin specialty coffees, and freshly baked sourdough pastries in the heart of Ferencváros – right next to Semmelweis Clinics.",
     "hero.ctaMenu": "Explore Our Menu",
@@ -292,7 +292,7 @@ const translations = {
     "location.badge": "LOCATION & DIRECTIONS",
     "location.title": "Where to find us",
     "location.address.title": "Address",
-    "location.address.val": "1094 Budapest, Tűzoltó utca 33.",
+    "location.address.val": "1094 Budapest, Tűzoltó utca 49-53.",
     "location.address.sub": "2 minutes walk from Semmelweis Klinikák M3 Metro Station",
     "location.hours.title": "Opening Hours",
     "location.hours.weekdays": "Monday – Friday: 07:30 – 18:00",

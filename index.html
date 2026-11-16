@@ -27,7 +27,7 @@
     "image": "assets/images/hero-brunch.webp",
     "address": {
       "@type": "PostalAddress",
-      "streetAddress": "Tűzoltó utca 33.",
+      "streetAddress": "Tűzoltó utca 49-53.",
       "addressLocality": "Budapest",
       "postalCode": "1094",
       "addressCountry": "HU"
@@ -65,7 +65,7 @@
         <span class="pulse-dot" aria-hidden="true"></span>
         <span data-i18n="nav.openStatus">Nyitva ma: 07:30 – 18:00</span>
         <span style="opacity: 0.6; margin: 0 0.35rem;">•</span>
-        <span>Budapest IX., Tűzoltó utca 33.</span>
+        <span>Budapest IX., Tűzoltó utca 49-53.</span>
       </div>
       <div class="top-bar-links">
         <a href="tel:+3618904210">📞 +36 1 890 4210</a>
@@ -117,7 +117,7 @@
     <div class="container hero-grid">
       <div class="hero-content">
         <div class="hero-badge">
-          <span data-i18n="hero.badge">☀️ Budapest IX. • Tűzoltó utca 33.</span>
+          <span data-i18n="hero.badge">☀️ Budapest IX. • Tűzoltó utca 49-53.</span>
         </div>
         <h1 class="hero-title" data-i18n="hero.title">Specialty kávék és lassú reggelik a <span class="highlight">Tűzoltó utcában</span>.</h1>
         <p class="hero-desc" data-i18n="hero.desc">Kézműves brunch, dűlőszelektált specialty kávék és frissen sült kovászos péksütemények a Ferencváros szívében – a Klinikák közvetlen szomszédságában.</p>
@@ -144,8 +144,23 @@
       </div>
 
       <!-- Hero Visual -->
-      <div class="hero-image-wrapper">
-        <div class="hero-main-card">
+      <div class="hero-image-wrapper" id="heroCardWrapper">
+        <!-- Interactive Rotating Artisan Stamp -->
+        <div class="hero-stamp-badge" aria-hidden="true">
+          <svg viewBox="0 0 160 160" class="rotating-stamp">
+            <path id="stampPath" d="M 80, 80 m -58, 0 a 58,58 0 1,1 116,0 a 58,58 0 1,1 -116,0" fill="none" />
+            <text>
+              <textPath href="#stampPath" startOffset="0%">
+                ★ KAFEA BUDAPEST ★ TŰZOLTÓ UTCA 49-53 ★ ALL-DAY BRUNCH ★
+              </textPath>
+            </text>
+          </svg>
+          <div class="stamp-center">
+            <span>☕</span>
+          </div>
+        </div>
+        <div class="hero-main-card" id="heroMainCard">
+          <div class="hero-card-glare" id="heroCardGlare"></div>
           <img src="assets/images/hero-brunch.webp" onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1533089860892-a7c6f0a88666?w=1400&q=82&auto=format&fit=crop';" alt="Friss reggeli és specialty kávék a Kafeában" width="1400" height="933" fetchpriority="high">
         </div>
         
@@ -456,7 +471,7 @@
           <img src="assets/images/pastry-croissant.webp" onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1555507036-ab1f4038808a?w=800&q=82&auto=format&fit=crop';" alt="Friss pékáruk" width="1000" height="800" loading="lazy">
         </div>
         <div class="about-badge-overlay">
-          ☀️ Tűzoltó utca 33.<br>
+          ☀️ Tűzoltó utca 49-53.<br>
           <span style="font-weight: 500; font-size: 0.75rem;">Specialty kávékultúra</span>
         </div>
       </div>
@@ -576,7 +591,7 @@
             <div class="info-icon">📍</div>
             <div class="info-text">
               <h4 data-i18n="location.address.title">Címünk</h4>
-              <p><strong data-i18n="location.address.val">1094 Budapest, Tűzoltó utca 33.</strong></p>
+              <p><strong data-i18n="location.address.val">1094 Budapest, Tűzoltó utca 49-53.</strong></p>
               <p data-i18n="location.address.sub">Semmelweis Klinikák M3 metrótól 2 perc kényelmes séta</p>
             </div>
           </div>
@@ -613,10 +628,10 @@
           </div>
           <h3 style="font-family: var(--font-serif); font-size: 1.6rem; color: var(--color-espresso); margin-bottom: 0.5rem;">KAFEA Budapest</h3>
           <p style="font-size: 0.95rem; color: var(--text-muted); max-width: 320px; margin-bottom: 1.5rem;">
-            1094 Budapest, Tűzoltó utca 33.<br>
+            1094 Budapest, Tűzoltó utca 49-53.<br>
             Ferencváros, Semmelweis Klinikák metróállomástól 180 méterre.
           </p>
-          <a href="https://maps.google.com/?q=Tuzolto+utca+Budapest" target="_blank" rel="noopener" class="btn btn-primary btn-sm">
+          <a href="https://maps.google.com/?q=Budapest+Tuzolto+utca+49-53" target="_blank" rel="noopener" class="btn btn-primary btn-sm">
             Útvonaltervezés a Google Térképen ↗
           </a>
         </div>
@@ -674,6 +689,16 @@
       </div>
     </div>
   </footer>
+
+  
+  <!-- Besztweb Studio Floating Conversion Badge -->
+  <aside class="besztweb-floating-badge" aria-label="Weboldal készítő">
+    <a href="https://beszterczey.com" target="_blank" rel="noopener" class="studio-pill">
+      <span class="studio-dot"></span>
+      <span class="studio-text">Készítette: <strong>Besztweb</strong> • Weboldal Készítés</span>
+      <span class="studio-arrow">↗</span>
+    </a>
+  </aside>
 
   <script src="i18n.js"></script>
   <script src="main.js"></script>

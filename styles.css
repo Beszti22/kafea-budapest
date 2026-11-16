@@ -1,7 +1,7 @@
 /* ==========================================================================
    KAFEA BUDAPEST — Official Design System & Styles
    Palette: Narancssárga & Fehér (Warm Citrus Orange & Crisp White) with Espresso Depth
-   Location: Tűzoltó utca 33., Budapest IX. kerület
+   Location: Tűzoltó utca 49-53., Budapest IX. kerület
    ========================================================================== */
 
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap');
@@ -1260,5 +1260,241 @@ button {
     flex-direction: column;
     gap: 1rem;
     text-align: center;
+  }
+}
+
+/* ==========================================================================
+   Showstopper Motion & Studio-tier Craft Additions
+   ========================================================================== */
+
+/* 3D Perspective Hero Card */
+.hero-image-wrapper {
+  position: relative;
+  perspective: 1200px;
+}
+
+.hero-main-card {
+  position: relative;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: 0 25px 50px -12px rgba(28, 25, 23, 0.18), 0 0 0 3px var(--color-white), 0 0 0 5px var(--color-orange-400);
+  background: var(--color-white);
+  transform-style: preserve-3d;
+  transition: transform 0.15s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.35s ease;
+  will-change: transform;
+}
+
+.hero-card-glare {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 2;
+  opacity: 0;
+  transition: opacity 0.35s ease;
+  mix-blend-mode: overlay;
+  background: radial-gradient(circle at 50% 50%, rgba(255, 255, 255, 0.5) 0%, rgba(255, 255, 255, 0) 65%);
+}
+
+.hero-image-wrapper:hover .hero-card-glare {
+  opacity: 1;
+}
+
+/* Rotating Artisan Circular Stamp */
+.hero-stamp-badge {
+  position: absolute;
+  top: -32px;
+  left: -32px;
+  width: 146px;
+  height: 146px;
+  z-index: 10;
+  pointer-events: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.rotating-stamp {
+  width: 100%;
+  height: 100%;
+  animation: rotateStamp 22s linear infinite;
+  transform-origin: center;
+}
+
+.rotating-stamp text {
+  font-family: var(--font-sans);
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.15em;
+  fill: var(--color-orange-600);
+  text-transform: uppercase;
+}
+
+.stamp-center {
+  position: absolute;
+  width: 58px;
+  height: 58px;
+  border-radius: 50%;
+  background: #FFFFFF;
+  border: 2px solid var(--color-orange-400);
+  box-shadow: 0 6px 18px rgba(249, 115, 22, 0.35);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.6rem;
+}
+
+@keyframes rotateStamp {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+/* Button Shimmer Ray */
+.btn-primary {
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(135deg, #F97316 0%, #EA580C 100%);
+  color: #FFFFFF;
+  box-shadow: 0 4px 16px rgba(234, 88, 12, 0.35);
+  border: 1px solid var(--color-orange-600);
+  font-weight: 700;
+}
+
+.btn-primary::after {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -60%;
+  width: 40%;
+  height: 200%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+  transform: rotate(25deg);
+  animation: btnShimmer 3.8s infinite;
+}
+
+@keyframes btnShimmer {
+  0% { left: -60%; }
+  28% { left: 140%; }
+  100% { left: 140%; }
+}
+
+/* Floating Badges Organic Bobbing */
+.float-badge-1 {
+  bottom: -20px;
+  left: -25px;
+  animation: floatBadge1 4.5s ease-in-out infinite alternate;
+}
+
+.float-badge-2 {
+  top: 30px;
+  right: -25px;
+  animation: floatBadge2 5.2s ease-in-out infinite alternate;
+}
+
+@keyframes floatBadge1 {
+  0% { transform: translateY(0px) rotate(0deg); }
+  100% { transform: translateY(-9px) rotate(-1.5deg); }
+}
+
+@keyframes floatBadge2 {
+  0% { transform: translateY(0px) rotate(0deg); }
+  100% { transform: translateY(9px) rotate(1.5deg); }
+}
+
+/* Floating Besztweb Studio Conversion Pill */
+.besztweb-floating-badge {
+  position: fixed;
+  bottom: 1.5rem;
+  right: 1.5rem;
+  z-index: 9999;
+  animation: studioSlideIn 0.8s 0.6s cubic-bezier(0.16, 1, 0.3, 1) backwards;
+}
+
+.studio-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.65rem;
+  background: rgba(28, 25, 23, 0.94);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  color: #FFFFFF;
+  padding: 0.55rem 1.15rem;
+  border-radius: var(--radius-full);
+  border: 1.5px solid rgba(249, 115, 22, 0.5);
+  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.25), 0 0 16px rgba(249, 115, 22, 0.2);
+  font-size: 0.825rem;
+  font-weight: 600;
+  transition: var(--transition);
+}
+
+.studio-pill:hover {
+  background: #1C1917;
+  border-color: var(--color-orange-500);
+  transform: translateY(-3px) scale(1.03);
+  box-shadow: 0 14px 34px rgba(0, 0, 0, 0.35), 0 0 24px rgba(249, 115, 22, 0.4);
+}
+
+.studio-dot {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: #F97316;
+  box-shadow: 0 0 8px #F97316;
+  animation: pulseOrange 2s infinite;
+}
+
+@keyframes pulseOrange {
+  0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(249, 115, 22, 0.7); }
+  70% { transform: scale(1); box-shadow: 0 0 0 6px rgba(249, 115, 22, 0); }
+  100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(249, 115, 22, 0); }
+}
+
+.studio-text strong {
+  color: var(--color-orange-400);
+}
+
+.studio-arrow {
+  font-size: 0.95rem;
+  color: var(--color-orange-400);
+  transition: transform 0.2s ease;
+}
+
+.studio-pill:hover .studio-arrow {
+  transform: translate(2px, -2px);
+}
+
+@keyframes studioSlideIn {
+  from { opacity: 0; transform: translateY(20px) scale(0.95); }
+  to { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+@media (max-width: 768px) {
+  .hero-stamp-badge {
+    width: 105px;
+    height: 105px;
+    top: -16px;
+    left: -12px;
+  }
+  .stamp-center {
+    width: 42px;
+    height: 42px;
+    font-size: 1.2rem;
+  }
+  .rotating-stamp text {
+    font-size: 12px;
+  }
+  .besztweb-floating-badge {
+    bottom: 1rem;
+    right: 1rem;
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
 }
