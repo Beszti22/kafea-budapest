@@ -1,26 +1,38 @@
 /* ==========================================================================
    KAFEA BUDAPEST — Official Design System & Styles
-   Palette: Sárga & Fehér (Sunny Yellow & Warm White) with Espresso Depth
+   Palette: Narancssárga & Fehér (Warm Citrus Orange & Crisp White) with Espresso Depth
    Location: Tűzoltó utca 33., Budapest IX. kerület
    ========================================================================== */
 
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap');
 
 :root {
-  /* Yellow & White Palette */
-  --color-yellow-50: #FEFCE8;
-  --color-yellow-100: #FEF9C3;
-  --color-yellow-200: #FDE68A;
-  --color-yellow-300: #FCD34D;
-  --color-yellow-400: #FBBF24;
-  --color-yellow-500: #EAB308;
-  --color-yellow-600: #CA8A04;
-  --color-yellow-700: #A16207;
+  /* Warm Orange & White Palette (Narancssárga - Citrus & Amber Brunch Vibe) */
+  --color-orange-50: #FFF7ED;
+  --color-orange-100: #FFEDD5;
+  --color-orange-200: #FED7AA;
+  --color-orange-300: #FDBA74;
+  --color-orange-400: #FB923C;
+  --color-orange-500: #F97316;
+  --color-orange-600: #EA580C;
+  --color-orange-700: #C2410C;
+  --color-orange-800: #9A3412;
+
+  /* Aliases for smooth token compatibility */
+  --color-yellow-50: var(--color-orange-50);
+  --color-yellow-100: var(--color-orange-100);
+  --color-yellow-200: var(--color-orange-200);
+  --color-yellow-300: var(--color-orange-300);
+  --color-yellow-400: var(--color-orange-500);
+  --color-yellow-500: var(--color-orange-600);
+  --color-yellow-600: var(--color-orange-700);
+  --color-yellow-700: var(--color-orange-800);
+  --color-yellow-800: #7C2D12;
 
   /* White & Neutrals */
   --color-white: #FFFFFF;
-  --color-eggshell: #FDFBF7;
-  --color-cream: #FAF7F0;
+  --color-eggshell: #FAF8F5;
+  --color-cream: #F5EFEB;
   
   /* Contrast Deep Espresso & Stones (WCAG AA compliant: > 10:1 ratio) */
   --color-espresso: #1C1917;
@@ -31,19 +43,19 @@
   /* Semantic Variables */
   --bg-primary: var(--color-white);
   --bg-secondary: var(--color-eggshell);
-  --bg-accent: var(--color-yellow-50);
+  --bg-accent: var(--color-orange-50);
   --bg-card: var(--color-white);
   
   --text-main: var(--color-espresso);
   --text-muted: var(--color-text-muted);
   
-  --accent-primary: var(--color-yellow-400);
-  --accent-hover: var(--color-yellow-500);
-  --accent-glow: rgba(234, 179, 8, 0.25);
+  --accent-primary: var(--color-orange-500);
+  --accent-hover: var(--color-orange-600);
+  --accent-glow: rgba(249, 115, 22, 0.28);
   
-  --border-subtle: #F3F1EC;
-  --border-yellow: var(--color-yellow-200);
-  --border-yellow-dark: var(--color-yellow-400);
+  --border-subtle: #F3ECE6;
+  --border-yellow: var(--color-orange-200);
+  --border-yellow-dark: var(--color-orange-400);
 
   /* Typography */
   --font-serif: 'Playfair Display', Georgia, serif;
@@ -52,8 +64,8 @@
   /* Elevation */
   --shadow-sm: 0 2px 8px rgba(28, 25, 23, 0.04);
   --shadow-card: 0 10px 30px -8px rgba(28, 25, 23, 0.06), 0 0 0 1px var(--border-yellow);
-  --shadow-hover: 0 18px 36px -10px rgba(234, 179, 8, 0.22), 0 0 0 2px var(--color-yellow-300);
-  --shadow-yellow: 0 8px 24px -4px rgba(234, 179, 8, 0.35);
+  --shadow-hover: 0 18px 36px -10px rgba(234, 88, 12, 0.24), 0 0 0 2px var(--color-orange-300);
+  --shadow-yellow: 0 8px 24px -4px rgba(249, 115, 22, 0.35);
 
   /* Radii */
   --radius-sm: 8px;
@@ -119,15 +131,16 @@ button {
 }
 
 /* ==========================================================================
-   Top Announcement Bar (Sárga Kiemelő Csík)
+   Top Announcement Bar (Narancssárga Kiemelő Csík)
    ========================================================================== */
 .top-bar {
-  background-color: var(--color-yellow-400);
-  color: var(--color-espresso);
+  background: linear-gradient(90deg, #F97316 0%, #FB923C 100%);
+  color: #FFFFFF;
   font-size: 0.825rem;
   font-weight: 600;
-  padding: 0.45rem 1rem;
-  border-bottom: 1px solid var(--color-yellow-500);
+  padding: 0.5rem 1rem;
+  border-bottom: 1px solid var(--color-orange-600);
+  box-shadow: 0 1px 3px rgba(234, 88, 12, 0.2);
 }
 
 .top-bar-inner {
@@ -145,22 +158,26 @@ button {
 .pulse-dot {
   width: 8px;
   height: 8px;
-  background-color: #16A34A;
+  background-color: #22C55E;
   border-radius: 50%;
-  box-shadow: 0 0 0 0 rgba(22, 163, 74, 0.7);
+  box-shadow: 0 0 0 0 rgba(34, 197, 94, 0.7);
   animation: pulseGreen 2s infinite;
 }
 
 @keyframes pulseGreen {
-  0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(22, 163, 74, 0.7); }
-  70% { transform: scale(1); box-shadow: 0 0 0 6px rgba(22, 163, 74, 0); }
-  100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(22, 163, 74, 0); }
+  0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(34, 197, 94, 0.7); }
+  70% { transform: scale(1); box-shadow: 0 0 0 6px rgba(34, 197, 94, 0); }
+  100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(34, 197, 94, 0); }
 }
 
 .top-bar-links {
   display: flex;
   gap: 1.5rem;
   font-size: 0.8rem;
+}
+
+.top-bar-links a {
+  color: #FFFFFF;
 }
 
 .top-bar-links a:hover {
@@ -174,7 +191,7 @@ button {
   position: sticky;
   top: 0;
   z-index: 100;
-  background: rgba(255, 255, 255, 0.94);
+  background: rgba(255, 255, 255, 0.95);
   backdrop-filter: blur(14px);
   -webkit-backdrop-filter: blur(14px);
   border-bottom: 1px solid var(--border-yellow);
@@ -201,16 +218,16 @@ button {
   color: var(--color-espresso);
   display: flex;
   align-items: center;
-  gap: 0.2rem;
+  gap: 0.25rem;
 }
 
 .brand-dot {
   width: 10px;
   height: 10px;
-  background-color: var(--color-yellow-400);
+  background-color: var(--color-orange-500);
   border-radius: 50%;
   display: inline-block;
-  box-shadow: 0 0 10px var(--color-yellow-400);
+  box-shadow: 0 0 10px rgba(249, 115, 22, 0.6);
 }
 
 .brand-sub {
@@ -243,7 +260,7 @@ button {
   left: 0;
   width: 0%;
   height: 2px;
-  background-color: var(--color-yellow-400);
+  background-color: var(--color-orange-500);
   transition: width 0.2s ease;
 }
 
@@ -260,10 +277,10 @@ button {
 /* Language Switcher */
 .lang-switcher {
   display: inline-flex;
-  background: var(--color-yellow-100);
+  background: var(--color-orange-100);
   padding: 3px;
   border-radius: var(--radius-full);
-  border: 1px solid var(--color-yellow-300);
+  border: 1px solid var(--color-orange-300);
 }
 
 .lang-btn {
@@ -278,7 +295,7 @@ button {
 .lang-btn.active {
   background: var(--color-white);
   box-shadow: var(--shadow-sm);
-  color: var(--color-espresso);
+  color: var(--color-orange-700);
 }
 
 /* Buttons */
@@ -297,28 +314,29 @@ button {
 }
 
 .btn-primary {
-  background-color: var(--color-yellow-400);
-  color: var(--color-espresso);
-  box-shadow: 0 4px 14px rgba(234, 179, 8, 0.35);
-  border: 1px solid var(--color-yellow-500);
+  background: linear-gradient(135deg, #F97316 0%, #EA580C 100%);
+  color: #FFFFFF;
+  box-shadow: 0 4px 14px rgba(234, 88, 12, 0.35);
+  border: 1px solid var(--color-orange-600);
 }
 
 .btn-primary:hover {
-  background-color: var(--color-yellow-300);
+  background: linear-gradient(135deg, #FB923C 0%, #F97316 100%);
   transform: translateY(-2px);
-  box-shadow: 0 8px 20px rgba(234, 179, 8, 0.45);
+  box-shadow: 0 8px 22px rgba(234, 88, 12, 0.45);
 }
 
 .btn-secondary {
   background-color: var(--color-white);
   color: var(--color-espresso);
-  border: 1.5px solid var(--color-yellow-400);
+  border: 1.5px solid var(--color-orange-400);
   box-shadow: var(--shadow-sm);
 }
 
 .btn-secondary:hover {
-  background-color: var(--color-yellow-50);
-  border-color: var(--color-yellow-500);
+  background-color: var(--color-orange-50);
+  border-color: var(--color-orange-600);
+  color: var(--color-orange-800);
   transform: translateY(-2px);
 }
 
@@ -352,7 +370,7 @@ button {
 .hero-section {
   position: relative;
   padding: 4.5rem 0 5rem;
-  background: linear-gradient(180deg, #FFFFFF 0%, var(--color-yellow-50) 60%, var(--color-eggshell) 100%);
+  background: linear-gradient(180deg, #FFFFFF 0%, var(--color-orange-50) 65%, var(--color-eggshell) 100%);
   overflow: hidden;
 }
 
@@ -360,9 +378,9 @@ button {
   position: absolute;
   top: -150px;
   right: -100px;
-  width: 500px;
-  height: 500px;
-  background: radial-gradient(circle, rgba(254, 240, 138, 0.6) 0%, rgba(254, 249, 195, 0.2) 60%, transparent 80%);
+  width: 520px;
+  height: 520px;
+  background: radial-gradient(circle, rgba(253, 186, 116, 0.45) 0%, rgba(254, 215, 170, 0.2) 55%, transparent 75%);
   border-radius: 50%;
   pointer-events: none;
   z-index: 1;
@@ -382,14 +400,14 @@ button {
   align-items: center;
   gap: 0.5rem;
   background: var(--color-white);
-  border: 1.5px solid var(--color-yellow-300);
-  color: var(--color-espresso);
+  border: 1.5px solid var(--color-orange-300);
+  color: var(--color-orange-800);
   font-size: 0.85rem;
   font-weight: 700;
   padding: 0.4rem 1rem;
   border-radius: var(--radius-full);
   margin-bottom: 1.5rem;
-  box-shadow: 0 2px 10px rgba(234, 179, 8, 0.15);
+  box-shadow: 0 2px 10px rgba(249, 115, 22, 0.12);
 }
 
 .hero-title {
@@ -413,10 +431,10 @@ button {
   left: 0;
   bottom: 8%;
   width: 100%;
-  height: 30%;
-  background: var(--color-yellow-300);
+  height: 32%;
+  background: var(--color-orange-200);
   z-index: -1;
-  opacity: 0.7;
+  opacity: 0.85;
   border-radius: 4px;
 }
 
@@ -451,12 +469,12 @@ button {
   color: var(--color-espresso);
   padding: 0.35rem 0.85rem;
   border-radius: var(--radius-full);
-  border: 1px solid var(--color-yellow-200);
+  border: 1px solid var(--color-orange-200);
   box-shadow: 0 1px 3px rgba(0,0,0,0.03);
 }
 
 .feature-pill svg {
-  color: var(--color-yellow-600);
+  color: var(--color-orange-600);
 }
 
 /* Hero Visual & Image Showcase */
@@ -468,7 +486,7 @@ button {
   position: relative;
   border-radius: var(--radius-lg);
   overflow: hidden;
-  box-shadow: 0 20px 45px -12px rgba(28, 25, 23, 0.15), 0 0 0 3px var(--color-white), 0 0 0 5px var(--color-yellow-300);
+  box-shadow: 0 20px 45px -12px rgba(28, 25, 23, 0.15), 0 0 0 3px var(--color-white), 0 0 0 5px var(--color-orange-400);
   background: var(--color-white);
 }
 
@@ -489,7 +507,7 @@ button {
   background: var(--color-white);
   padding: 0.85rem 1.25rem;
   border-radius: var(--radius-md);
-  box-shadow: 0 12px 30px rgba(0,0,0,0.12), 0 0 0 1px var(--color-yellow-300);
+  box-shadow: 0 12px 30px rgba(0,0,0,0.12), 0 0 0 1px var(--color-orange-300);
   display: flex;
   align-items: center;
   gap: 0.75rem;
@@ -509,13 +527,13 @@ button {
 .float-icon {
   width: 42px;
   height: 42px;
-  background: var(--color-yellow-100);
+  background: var(--color-orange-100);
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
   font-size: 1.3rem;
-  color: var(--color-yellow-700);
+  color: var(--color-orange-700);
 }
 
 .float-text strong {
@@ -530,7 +548,7 @@ button {
 }
 
 /* ==========================================================================
-   Strip / Features Highlight (Sárga Kiemelő Dobozok)
+   Strip / Features Highlight (Narancssárga Kiemelő Dobozok)
    ========================================================================== */
 .strip-section {
   padding: 3rem 0;
@@ -546,8 +564,8 @@ button {
 }
 
 .strip-card {
-  background: var(--color-yellow-50);
-  border: 1px solid var(--color-yellow-200);
+  background: var(--color-orange-50);
+  border: 1px solid var(--color-orange-200);
   border-radius: var(--radius-md);
   padding: 1.5rem;
   transition: var(--transition);
@@ -557,20 +575,20 @@ button {
 .strip-card:hover {
   transform: translateY(-4px);
   background: var(--color-white);
-  box-shadow: 0 12px 28px -6px rgba(234, 179, 8, 0.25);
-  border-color: var(--color-yellow-400);
+  box-shadow: 0 12px 28px -6px rgba(249, 115, 22, 0.22);
+  border-color: var(--color-orange-500);
 }
 
 .strip-icon {
   width: 44px;
   height: 44px;
   background: var(--color-white);
-  border: 1.5px solid var(--color-yellow-400);
+  border: 1.5px solid var(--color-orange-400);
   border-radius: var(--radius-sm);
   display: flex;
   align-items: center;
   justify-content: center;
-  color: var(--color-yellow-600);
+  color: var(--color-orange-600);
   margin-bottom: 1rem;
 }
 
@@ -605,7 +623,7 @@ button {
   font-size: 0.8rem;
   font-weight: 700;
   letter-spacing: 0.15em;
-  color: var(--color-yellow-700);
+  color: var(--color-orange-700);
   text-transform: uppercase;
   margin-bottom: 0.5rem;
 }
@@ -639,20 +657,20 @@ button {
   border-radius: var(--radius-full);
   background: var(--color-white);
   color: var(--color-espresso);
-  border: 1.5px solid var(--color-yellow-200);
+  border: 1.5px solid var(--color-orange-200);
   transition: var(--transition);
 }
 
 .menu-tab-btn:hover {
-  background: var(--color-yellow-100);
-  border-color: var(--color-yellow-400);
+  background: var(--color-orange-100);
+  border-color: var(--color-orange-400);
 }
 
 .menu-tab-btn.active {
-  background: var(--color-yellow-400);
-  border-color: var(--color-yellow-500);
-  color: var(--color-espresso);
-  box-shadow: 0 4px 12px rgba(234, 179, 8, 0.35);
+  background: linear-gradient(135deg, #F97316 0%, #EA580C 100%);
+  border-color: var(--color-orange-600);
+  color: #FFFFFF;
+  box-shadow: 0 4px 14px rgba(234, 88, 12, 0.35);
 }
 
 /* Menu Category Panes */
@@ -683,7 +701,7 @@ button {
 
 .menu-item-card:hover {
   transform: translateY(-3px);
-  border-color: var(--color-yellow-400);
+  border-color: var(--color-orange-400);
   box-shadow: 0 12px 28px -6px rgba(28, 25, 23, 0.08);
 }
 
@@ -725,7 +743,7 @@ button {
 .menu-item-price {
   font-size: 1.1rem;
   font-weight: 700;
-  color: var(--color-yellow-700);
+  color: var(--color-orange-700);
   white-space: nowrap;
 }
 
@@ -744,9 +762,9 @@ button {
   letter-spacing: 0.05em;
   padding: 0.2rem 0.6rem;
   border-radius: var(--radius-full);
-  background: var(--color-yellow-100);
-  color: var(--color-yellow-800);
-  border: 1px solid var(--color-yellow-300);
+  background: var(--color-orange-100);
+  color: var(--color-orange-800);
+  border: 1px solid var(--color-orange-300);
 }
 
 /* ==========================================================================
@@ -776,7 +794,7 @@ button {
   border-radius: var(--radius-md);
   overflow: hidden;
   box-shadow: var(--shadow-sm);
-  border: 2px solid var(--color-yellow-100);
+  border: 2px solid var(--color-orange-100);
 }
 
 .about-img img {
@@ -799,13 +817,13 @@ button {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  background: var(--color-yellow-400);
-  color: var(--color-espresso);
+  background: linear-gradient(135deg, #F97316 0%, #EA580C 100%);
+  color: #FFFFFF;
   font-weight: 800;
   font-size: 0.85rem;
   padding: 0.75rem 1.25rem;
   border-radius: var(--radius-full);
-  box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+  box-shadow: 0 8px 20px rgba(234, 88, 12, 0.3);
   border: 2px solid var(--color-white);
   text-align: center;
 }
@@ -840,7 +858,7 @@ button {
   font-family: var(--font-serif);
   font-size: 2rem;
   font-weight: 700;
-  color: var(--color-yellow-600);
+  color: var(--color-orange-600);
 }
 
 .stat-item span {
@@ -854,15 +872,15 @@ button {
    ========================================================================== */
 .reservation-section {
   padding: 5.5rem 0;
-  background: linear-gradient(180deg, var(--bg-secondary) 0%, var(--color-yellow-50) 100%);
+  background: linear-gradient(180deg, var(--bg-secondary) 0%, var(--color-orange-50) 100%);
   position: relative;
 }
 
 .reservation-card {
   background: var(--color-white);
   border-radius: var(--radius-lg);
-  border: 2px solid var(--color-yellow-300);
-  box-shadow: 0 20px 40px -10px rgba(234, 179, 8, 0.2);
+  border: 2px solid var(--color-orange-300);
+  box-shadow: 0 20px 40px -10px rgba(249, 115, 22, 0.18);
   padding: 3.5rem;
   max-width: 860px;
   margin: 0 auto;
@@ -904,8 +922,8 @@ button {
 .form-input:focus, .form-select:focus, .form-textarea:focus {
   outline: none;
   background: var(--color-white);
-  border-color: var(--color-yellow-500);
-  box-shadow: 0 0 0 3px var(--color-yellow-100);
+  border-color: var(--color-orange-500);
+  box-shadow: 0 0 0 3px var(--color-orange-100);
 }
 
 .form-textarea {
@@ -924,9 +942,9 @@ button {
 
 .form-success-msg {
   display: none;
-  background: var(--color-yellow-100);
-  border: 1.5px solid var(--color-yellow-400);
-  color: var(--color-espresso);
+  background: var(--color-orange-100);
+  border: 1.5px solid var(--color-orange-400);
+  color: var(--color-orange-900);
   padding: 1.25rem;
   border-radius: var(--radius-md);
   font-weight: 600;
@@ -957,8 +975,8 @@ button {
 }
 
 .info-box {
-  background: var(--color-yellow-50);
-  border: 1.5px solid var(--color-yellow-200);
+  background: var(--color-orange-50);
+  border: 1.5px solid var(--color-orange-200);
   border-radius: var(--radius-md);
   padding: 1.5rem;
   display: flex;
@@ -970,12 +988,13 @@ button {
   width: 44px;
   height: 44px;
   border-radius: 50%;
-  background: var(--color-yellow-400);
-  color: var(--color-espresso);
+  background: linear-gradient(135deg, #F97316 0%, #EA580C 100%);
+  color: #FFFFFF;
   display: flex;
   align-items: center;
   justify-content: center;
   flex-shrink: 0;
+  box-shadow: 0 4px 10px rgba(234, 88, 12, 0.25);
 }
 
 .info-text h4 {
@@ -1016,21 +1035,22 @@ button {
   justify-content: center;
   align-items: center;
   text-align: center;
-  background: radial-gradient(circle, #FFF 0%, var(--color-yellow-50) 100%);
+  background: radial-gradient(circle, #FFF 0%, var(--color-orange-50) 100%);
   position: relative;
 }
 
 .map-pin-pulse {
   width: 70px;
   height: 70px;
-  background: var(--color-yellow-400);
+  background: linear-gradient(135deg, #F97316 0%, #EA580C 100%);
   border: 3px solid var(--color-white);
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
-  box-shadow: 0 10px 25px rgba(234, 179, 8, 0.4);
+  box-shadow: 0 10px 25px rgba(234, 88, 12, 0.35);
   margin-bottom: 1.5rem;
+  color: #FFFFFF;
 }
 
 /* ==========================================================================
@@ -1064,7 +1084,7 @@ button {
 .footer-col h4 {
   font-size: 1rem;
   font-weight: 700;
-  color: var(--color-yellow-400);
+  color: var(--color-orange-400);
   margin-bottom: 1.25rem;
 }
 
@@ -1081,7 +1101,7 @@ button {
 }
 
 .footer-links a:hover {
-  color: var(--color-yellow-400);
+  color: var(--color-orange-400);
   padding-left: 4px;
 }
 
@@ -1105,7 +1125,7 @@ button {
   display: inline-flex;
   align-items: center;
   gap: 0.4rem;
-  color: var(--color-yellow-400);
+  color: var(--color-orange-400);
   font-weight: 600;
 }
 
@@ -1191,7 +1211,7 @@ button {
     flex-direction: column;
     padding: 1.5rem;
     box-shadow: 0 10px 20px rgba(0,0,0,0.1);
-    border-bottom: 2px solid var(--color-yellow-400);
+    border-bottom: 2px solid var(--color-orange-500);
     gap: 1rem;
   }
 
