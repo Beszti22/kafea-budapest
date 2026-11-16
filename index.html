@@ -1,0 +1,681 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kafea | Kávézó & Brunch • Budapest, Tűzoltó utca</title>
+  <meta name="description" content="Specialty kávék, lassú reggelik és egész napos kézműves brunch a Tűzoltó utcában, Ferencváros orvosi és egyetemi negyedében. 100% Arabica, Eggs Benedict, házi pékáru.">
+  <meta name="keywords" content="Kafea Budapest, Tűzoltó utca kávézó, brunch Tűzoltó utca, specialty kávé Ferencváros, Klinikák reggeli, eggs benedict budapest">
+  
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Kafea | Kávézó & Brunch • Budapest, Tűzoltó utca">
+  <meta property="og:description" content="Specialty kávék és lassú reggelik a Tűzoltó utcában. Kézműves brunch, dűlőszelektált tételek és friss kovászos péksütemények.">
+  <meta property="og:image" content="assets/images/hero-brunch.webp">
+
+  <!-- Favicon / Brand SVG -->
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><circle cx='50' cy='50' r='46' fill='%23FBBF24'/><text y='58' font-size='38' font-family='serif' font-weight='bold' fill='%231C1917' text-anchor='middle' x='50'>K</text></svg>">
+
+  <link rel="stylesheet" href="styles.css">
+
+  <!-- Schema.org Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "CafeOrCoffeeShop",
+    "name": "Kafea Budapest",
+    "image": "assets/images/hero-brunch.webp",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Tűzoltó utca 33.",
+      "addressLocality": "Budapest",
+      "postalCode": "1094",
+      "addressCountry": "HU"
+    },
+    "geo": {
+      "@type": "GeoCoordinates",
+      "latitude": 47.4789,
+      "longitude": 19.0782
+    },
+    "servesCuisine": ["Coffee", "Brunch", "Breakfast", "Pastries"],
+    "priceRange": "$$",
+    "openingHoursSpecification": [
+      {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+        "opens": "07:30",
+        "closes": "18:00"
+      },
+      {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": ["Saturday", "Sunday"],
+        "opens": "08:30",
+        "closes": "17:00"
+      }
+    ]
+  }
+  </script>
+</head>
+<body>
+
+  <!-- Announcement Bar (Sárga Kiemelő Fejléc) -->
+  <aside class="top-bar" aria-label="Információs sáv">
+    <div class="container top-bar-inner">
+      <div class="status-indicator">
+        <span class="pulse-dot" aria-hidden="true"></span>
+        <span data-i18n="nav.openStatus">Nyitva ma: 07:30 – 18:00</span>
+        <span style="opacity: 0.6; margin: 0 0.35rem;">•</span>
+        <span>Budapest IX., Tűzoltó utca 33.</span>
+      </div>
+      <div class="top-bar-links">
+        <a href="tel:+3618904210">📞 +36 1 890 4210</a>
+        <a href="#reservation">🗓️ Asztalfoglalás</a>
+      </div>
+    </div>
+  </aside>
+
+  <!-- Sticky Header -->
+  <header class="site-header">
+    <div class="container navbar">
+      <a href="#" class="brand-wrapper" aria-label="Kafea Kezdőlap">
+        <span class="brand-logo">KAFEA<span class="brand-dot"></span></span>
+        <span class="brand-sub" data-i18n="nav.tagline">Kávézó & Brunch • Tűzoltó utca</span>
+      </a>
+
+      <!-- Desktop Nav Links -->
+      <nav aria-label="Főmenü">
+        <ul class="nav-links" id="navLinks">
+          <li><a href="#menu" class="nav-link" data-i18n="nav.menu">Kínálat</a></li>
+          <li><a href="#about" class="nav-link" data-i18n="nav.about">Rólunk</a></li>
+          <li><a href="#strip" class="nav-link" data-i18n="nav.highlights">Specialitások</a></li>
+          <li><a href="#location" class="nav-link" data-i18n="nav.hours">Nyitvatartás</a></li>
+          <li><a href="#location" class="nav-link" data-i18n="nav.contact">Kapcsolat</a></li>
+        </ul>
+      </nav>
+
+      <!-- Language & CTA Actions -->
+      <div class="nav-actions">
+        <div class="lang-switcher" role="group" aria-label="Nyelvválasztó">
+          <button class="lang-btn active" data-lang="hu" aria-label="Magyar nyelv">HU</button>
+          <button class="lang-btn" data-lang="en" aria-label="English language">EN</button>
+        </div>
+
+        <a href="#reservation" class="btn btn-primary btn-sm" data-i18n="nav.reserve">Asztalfoglalás</a>
+
+        <button class="mobile-toggle" id="mobileToggle" aria-label="Menü megnyitása" aria-expanded="false">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero-section" id="hero">
+    <div class="hero-sunburst"></div>
+    <div class="container hero-grid">
+      <div class="hero-content">
+        <div class="hero-badge">
+          <span data-i18n="hero.badge">☀️ Budapest IX. • Tűzoltó utca 33.</span>
+        </div>
+        <h1 class="hero-title" data-i18n="hero.title">Specialty kávék és lassú reggelik a <span class="highlight">Tűzoltó utcában</span>.</h1>
+        <p class="hero-desc" data-i18n="hero.desc">Kézműves brunch, dűlőszelektált specialty kávék és frissen sült kovászos péksütemények a Ferencváros szívében – a Klinikák közvetlen szomszédságában.</p>
+        
+        <div class="hero-actions">
+          <a href="#menu" class="btn btn-primary" data-i18n="hero.ctaMenu">Kínálatunk megtekintése</a>
+          <a href="#reservation" class="btn btn-secondary" data-i18n="hero.ctaReserve">Asztalfoglalás</a>
+        </div>
+
+        <div class="hero-badges-row">
+          <span class="feature-pill">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+            <span data-i18n="hero.badge1">100% Arabica Specialty</span>
+          </span>
+          <span class="feature-pill">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+            <span data-i18n="hero.badge2">Egész napos brunch</span>
+          </span>
+          <span class="feature-pill">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M10 5.172C10 3.782 8.423 2.679 6.5 3c-2.823.47-4.113 6.006-4 7 .08.703 1.725 1.722 3.996 1 1.157-.367 3.504-4.428 3.504-5.828zM14 5.172C14 3.782 15.577 2.679 17.5 3c2.823.47 4.113 6.006 4 7-.08.703-1.725 1.722-3.996 1-1.157-.367-3.504-4.428-3.504-5.828z"/></svg>
+            <span data-i18n="hero.badge3">Kutyabarát & Terasz</span>
+          </span>
+        </div>
+      </div>
+
+      <!-- Hero Visual -->
+      <div class="hero-image-wrapper">
+        <div class="hero-main-card">
+          <img src="assets/images/hero-brunch.webp" alt="Friss reggeli és specialty kávék a Kafeában" width="1400" height="933" fetchpriority="high">
+        </div>
+        
+        <!-- Floating badge 1 -->
+        <div class="hero-float-badge float-badge-1">
+          <div class="float-icon">☕</div>
+          <div class="float-text">
+            <strong>Specialty Kávék</strong>
+            <span>Világos & közepes pörkölés</span>
+          </div>
+        </div>
+
+        <!-- Floating badge 2 -->
+        <div class="hero-float-badge float-badge-2">
+          <div class="float-icon">🍳</div>
+          <div class="float-text">
+            <strong>All-Day Brunch</strong>
+            <span>Friss szabadtartásos tojások</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Quick Highlights Strip (Sárga Kártyák) -->
+  <section class="strip-section" id="strip">
+    <div class="container">
+      <div class="strip-grid">
+        <div class="strip-card">
+          <div class="strip-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 8h1a4 4 0 0 1 0 8h-1M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8zM6 1v3M10 1v3M14 1v3"/></svg>
+          </div>
+          <h3 data-i18n="strip.feature1.title">Specialty Pörkölések</h3>
+          <p data-i18n="strip.feature1.desc">Világos és közepes dűlőszelektált tételek, precíz espresso és V60 filter technológia.</p>
+        </div>
+
+        <div class="strip-card">
+          <div class="strip-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"/></svg>
+          </div>
+          <h3 data-i18n="strip.feature2.title">Egész Napos Brunch</h3>
+          <p data-i18n="strip.feature2.desc">Nálunk nem maradsz le a reggeliről: tojásételek, bagelek és bowlok délután 4-ig.</p>
+        </div>
+
+        <div class="strip-card">
+          <div class="strip-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m2 10 3-6 5 2 4-2 5 2 3 6-5 4-5-2-5 2z"/></svg>
+          </div>
+          <h3 data-i18n="strip.feature3.title">Kovászos Pékáru</h3>
+          <p data-i18n="strip.feature3.desc">Helyben sült vajas croissant-ok, kardamomos tekercsek és kézműves kenyerek.</p>
+        </div>
+
+        <div class="strip-card">
+          <div class="strip-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 21a9 9 0 1 0 0-18 9 9 0 0 0 0 18zM12 8v4l3 3"/></svg>
+          </div>
+          <h3 data-i18n="strip.feature4.title">Tűzoltó Utcai Nyugalom</h3>
+          <p data-i18n="strip.feature4.desc">Árnyas terasz, kutyabarát vendégtér, csendes sarkok munkához vagy baráti beszélgetéshez.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Brunch & Kávé Kínálat (Interactive Tabbed Menu) -->
+  <section class="menu-section" id="menu">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-subtitle" data-i18n="menu.subtitle">ÍZLELŐBIMBÓKNAK TERVEZVE</span>
+        <h2 class="section-title" data-i18n="menu.title">Brunch & Kávé Kínálat</h2>
+        <p class="section-desc" data-i18n="menu.desc">Minden reggeli friss, minőségi termelői alapanyagokból készül, a kávéinkat pedig a legjobb hazai mikropörkölőktől válogatjuk.</p>
+      </div>
+
+      <!-- Menu Category Tabs -->
+      <div class="menu-tabs" role="tablist">
+        <button class="menu-tab-btn active" data-category="brunch" role="tab" data-i18n="menu.tab.brunch">🍳 All-Day Brunch</button>
+        <button class="menu-tab-btn" data-category="coffee" role="tab" data-i18n="menu.tab.coffee">☕ Specialty Kávék</button>
+        <button class="menu-tab-btn" data-category="bakery" role="tab" data-i18n="menu.tab.bakery">🥐 Péksütemény & Édesség</button>
+      </div>
+
+      <!-- Tab Pane 1: Brunch -->
+      <div class="menu-pane active" id="menu-brunch">
+        <div class="menu-grid">
+          <!-- Item 1 (Image Card) -->
+          <article class="menu-item-card has-img">
+            <img class="menu-item-thumb" src="assets/images/brunch-benedict.webp" alt="Kafea Signature Benedict" width="1000" height="1500" loading="lazy">
+            <div class="menu-item-body">
+              <div>
+                <div class="menu-item-head">
+                  <h3 class="menu-item-name" data-i18n="menu.item1.name">Kafea Signature Benedict</h3>
+                  <span class="menu-item-price" data-i18n="menu.item1.price">3 890 Ft</span>
+                </div>
+                <p class="menu-item-desc" data-i18n="menu.item1.desc">Vajas házi briós, 2 buggyantott szabadtartásos tojás, érlelt sonka vagy füstölt lazac, krémes sárga hollandi mártás, snidling.</p>
+              </div>
+              <span class="menu-tag" data-i18n="menu.item1.tag">Ház Specialitása</span>
+            </div>
+          </article>
+
+          <!-- Item 2 (Image Card) -->
+          <article class="menu-item-card has-img">
+            <img class="menu-item-thumb" src="assets/images/brunch-avocado.webp" alt="Avocado Toast" width="1000" height="1000" loading="lazy">
+            <div class="menu-item-body">
+              <div>
+                <div class="menu-item-head">
+                  <h3 class="menu-item-name" data-i18n="menu.item2.name">Avocado & Zöldfűszer Toast</h3>
+                  <span class="menu-item-price" data-i18n="menu.item2.price">3 490 Ft</span>
+                </div>
+                <p class="menu-item-desc" data-i18n="menu.item2.desc">Kovászos parasztkenyér, lime-os friss avokádókrém, buggyantott tojás, pirított magvak, chilipehely, mikrozöldek.</p>
+              </div>
+              <span class="menu-tag" data-i18n="menu.item2.tag">Vegetáriánus</span>
+            </div>
+          </article>
+
+          <!-- Item 3 -->
+          <article class="menu-item-card">
+            <div class="menu-item-body">
+              <div>
+                <div class="menu-item-head">
+                  <h3 class="menu-item-name" data-i18n="menu.item3.name">Ferencvárosi Shakshuka</h3>
+                  <span class="menu-item-price" data-i18n="menu.item3.price">3 290 Ft</span>
+                </div>
+                <p class="menu-item-desc" data-i18n="menu.item3.desc">Klasszikus fűszeres paradicsomos-paprikás ragu, 2 lágy tojás, krémes görög feta sajt, friss kovászos kenyérrel mártogatáshoz.</p>
+              </div>
+              <span class="menu-tag" data-i18n="menu.item3.tag">Közönségkedvenc</span>
+            </div>
+          </article>
+
+          <!-- Item 4 (Image Card) -->
+          <article class="menu-item-card has-img">
+            <img class="menu-item-thumb" src="assets/images/brunch-pancakes.webp" alt="Citromos Ricotta Palacsinta" width="1000" height="1208" loading="lazy">
+            <div class="menu-item-body">
+              <div>
+                <div class="menu-item-head">
+                  <h3 class="menu-item-name" data-i18n="menu.item4.name">Citromos-Ricottás Amerikai Palacsinta</h3>
+                  <span class="menu-item-price" data-i18n="menu.item4.price">3 190 Ft</span>
+                </div>
+                <p class="menu-item-desc" data-i18n="menu.item4.desc">Pihe-puha vastag palacsinták, házi erdei gyümölcsragu, juharszirup, citromos mascarponehab, pisztáciatöret.</p>
+              </div>
+              <span class="menu-tag" data-i18n="menu.item4.tag">Édes élvezet</span>
+            </div>
+          </article>
+
+          <!-- Item 5 -->
+          <article class="menu-item-card">
+            <div class="menu-item-body">
+              <div>
+                <div class="menu-item-head">
+                  <h3 class="menu-item-name" data-i18n="menu.item5.name">Truffle Scrambled Brioche</h3>
+                  <span class="menu-item-price" data-i18n="menu.item5.price">3 690 Ft</span>
+                </div>
+                <p class="menu-item-desc" data-i18n="menu.item5.desc">Krémes lágy rántotta szarvasgombás vajjal, pirított vadgombákkal és parmezán forgáccsal kézműves briós ágyon.</p>
+              </div>
+              <span class="menu-tag" data-i18n="menu.item5.tag">Újdonság</span>
+            </div>
+          </article>
+
+          <!-- Item 6 -->
+          <article class="menu-item-card">
+            <div class="menu-item-body">
+              <div>
+                <div class="menu-item-head">
+                  <h3 class="menu-item-name" data-i18n="menu.item6.name">Sárga Mangó & Acai Smoothie Tál</h3>
+                  <span class="menu-item-price" data-i18n="menu.item6.price">2 990 Ft</span>
+                </div>
+                <p class="menu-item-desc" data-i18n="menu.item6.desc">Krémes mangó-acai smoothie alap, házi pirított granola, chia mag, friss banán, áfonya és kókuszpehely.</p>
+              </div>
+              <span class="menu-tag" data-i18n="menu.item6.tag">Vegán & GF</span>
+            </div>
+          </article>
+        </div>
+      </div>
+
+      <!-- Tab Pane 2: Coffee -->
+      <div class="menu-pane" id="menu-coffee">
+        <div class="menu-grid">
+          <!-- Coffee 1 (Image Card) -->
+          <article class="menu-item-card has-img">
+            <img class="menu-item-thumb" src="assets/images/coffee-flatwhite.webp" alt="Flat White Specialty Kávé" width="1000" height="750" loading="lazy">
+            <div class="menu-item-body">
+              <div>
+                <div class="menu-item-head">
+                  <h3 class="menu-item-name" data-i18n="menu.coffee2.name">Flat White</h3>
+                  <span class="menu-item-price" data-i18n="menu.coffee2.price">1 450 Ft</span>
+                </div>
+                <p class="menu-item-desc" data-i18n="menu.coffee2.desc">Dupla ristretto selymes, mikrohabos zsíros tejjel vagy zabtejjel.</p>
+              </div>
+              <span class="menu-tag">Specialty Barista</span>
+            </div>
+          </article>
+
+          <!-- Coffee 2 (Image Card) -->
+          <article class="menu-item-card has-img">
+            <img class="menu-item-thumb" src="assets/images/coffee-filter.webp" alt="Filter Kávé V60" width="1000" height="1500" loading="lazy">
+            <div class="menu-item-body">
+              <div>
+                <div class="menu-item-head">
+                  <h3 class="menu-item-name" data-i18n="menu.coffee3.name">Batch Brew / V60 Kézi Filter</h3>
+                  <span class="menu-item-price" data-i18n="menu.coffee3.price">1 250 Ft / 1 650 Ft</span>
+                </div>
+                <p class="menu-item-desc" data-i18n="menu.coffee3.desc">Frissen őrölt, tisztán csöpögtetett specialty filterkávé az igazi feketekedvelőknek.</p>
+              </div>
+              <span class="menu-tag">Single Origin</span>
+            </div>
+          </article>
+
+          <!-- Coffee 3 -->
+          <article class="menu-item-card">
+            <div class="menu-item-body">
+              <div>
+                <div class="menu-item-head">
+                  <h3 class="menu-item-name" data-i18n="menu.coffee1.name">Espresso / Double Shot</h3>
+                  <span class="menu-item-price" data-i18n="menu.coffee1.price">950 Ft / 1 150 Ft</span>
+                </div>
+                <p class="menu-item-desc" data-i18n="menu.coffee1.desc">Szezonális single origin etióp vagy kolumbiai világos pörkölés, virágos-gyümölcsös jegyekkel.</p>
+              </div>
+              <span class="menu-tag">100% Arabica</span>
+            </div>
+          </article>
+
+          <!-- Coffee 4 -->
+          <article class="menu-item-card">
+            <div class="menu-item-body">
+              <div>
+                <div class="menu-item-head">
+                  <h3 class="menu-item-name" data-i18n="menu.coffee4.name">Arany Kurkuma & Zab Latte</h3>
+                  <span class="menu-item-price" data-i18n="menu.coffee4.price">1 550 Ft</span>
+                </div>
+                <p class="menu-item-desc" data-i18n="menu.coffee4.desc">Koffeinmentes melegítő ital bio kurkumával, gyömbérrel, fahéjjal és habosított zabtejjel.</p>
+              </div>
+              <span class="menu-tag">Koffeinmentes</span>
+            </div>
+          </article>
+
+          <!-- Coffee 5 -->
+          <article class="menu-item-card">
+            <div class="menu-item-body">
+              <div>
+                <div class="menu-item-head">
+                  <h3 class="menu-item-name" data-i18n="menu.coffee5.name">Iced Vanilla Cold Brew</h3>
+                  <span class="menu-item-price" data-i18n="menu.coffee5.price">1 590 Ft</span>
+                </div>
+                <p class="menu-item-desc" data-i18n="menu.coffee5.desc">18 órán át hidegen áztatott etióp kávé, madagaszkári vanília, narancshéj és jég.</p>
+              </div>
+              <span class="menu-tag">Frissítő</span>
+            </div>
+          </article>
+        </div>
+      </div>
+
+      <!-- Tab Pane 3: Bakery -->
+      <div class="menu-pane" id="menu-bakery">
+        <div class="menu-grid">
+          <!-- Bakery 1 (Image Card) -->
+          <article class="menu-item-card has-img">
+            <img class="menu-item-thumb" src="assets/images/pastry-croissant.webp" alt="Friss Vajas Croissant" width="1000" height="800" loading="lazy">
+            <div class="menu-item-body">
+              <div>
+                <div class="menu-item-head">
+                  <h3 class="menu-item-name" data-i18n="menu.bakery1.name">Helyben Sült Vajas Croissant</h3>
+                  <span class="menu-item-price" data-i18n="menu.bakery1.price">1 150 Ft</span>
+                </div>
+                <p class="menu-item-desc" data-i18n="menu.bakery1.desc">Francia vajjal rétegezett, ropogós héjú, belül habkönnyű.</p>
+              </div>
+              <span class="menu-tag">Helyben Sült</span>
+            </div>
+          </article>
+
+          <!-- Bakery 2 -->
+          <article class="menu-item-card">
+            <div class="menu-item-body">
+              <div>
+                <div class="menu-item-head">
+                  <h3 class="menu-item-name" data-i18n="menu.bakery2.name">Kardamomos-Fahéjas Tekercs</h3>
+                  <span class="menu-item-price" data-i18n="menu.bakery2.price">1 350 Ft</span>
+                </div>
+                <p class="menu-item-desc" data-i18n="menu.bakery2.desc">Skandináv stílusú puha kelt tészta, barna cukros fűszerezéssel.</p>
+              </div>
+              <span class="menu-tag">Fűszeres</span>
+            </div>
+          </article>
+
+          <!-- Bakery 3 -->
+          <article class="menu-item-card">
+            <div class="menu-item-body">
+              <div>
+                <div class="menu-item-head">
+                  <h3 class="menu-item-name" data-i18n="menu.bakery3.name">Sárgabarackos Baszk Sajttorta</h3>
+                  <span class="menu-item-price" data-i18n="menu.bakery3.price">1 750 Ft</span>
+                </div>
+                <p class="menu-item-desc" data-i18n="menu.bakery3.desc">Karamellizált külső, lágy és krémes belső, házi baracklekvárral.</p>
+              </div>
+              <span class="menu-tag">Gluténmentes</span>
+            </div>
+          </article>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- About / Filozófia Section -->
+  <section class="about-section" id="about">
+    <div class="container about-grid">
+      <!-- Mosaic Visual -->
+      <div class="about-images-mosaic">
+        <div class="about-img">
+          <img src="assets/images/cafe-ambiance.webp" alt="Kafea belső tér és hangulat" width="1200" height="823" loading="lazy">
+        </div>
+        <div class="about-img about-img-tall">
+          <img src="assets/images/pastry-croissant.webp" alt="Friss pékáruk" width="1000" height="800" loading="lazy">
+        </div>
+        <div class="about-badge-overlay">
+          ☀️ Tűzoltó utca 33.<br>
+          <span style="font-weight: 500; font-size: 0.75rem;">Specialty kávékultúra</span>
+        </div>
+      </div>
+
+      <!-- About Content -->
+      <div class="about-content">
+        <span class="section-subtitle" data-i18n="about.badge">A KAFEA TÖRTÉNET</span>
+        <h2 class="section-title" data-i18n="about.title">Egy napsütötte pont a Tűzoltó utca szívében</h2>
+        
+        <p class="about-text" data-i18n="about.p1">A Kafea abból a vágyból született, hogy Ferencváros egyetemvárosi és orvosi negyedében hozzunk létre egy olyan találkozóhelyet, ahol senkinek sem kell sietnie. Egy kávézó, ami reggel energiát ad az egyetem vagy műszak előtt, délben pedig kényelmes menedék egy ráérős brunchra.</p>
+        
+        <p class="about-text" data-i18n="about.p2">A sárga és fehér színeink a reggeli napsütést, a frissességet és a jókedvet jelképezik. Nálunk az étel nem kötelező kör: a hollandi mártásunk mindig friss vajból kevert, a tojásaink szabadon kapirgáló tyúkoktól érkeznek, a kávészemek pedig etikus forrásból származnak.</p>
+
+        <div class="about-stats">
+          <div class="stat-item">
+            <strong data-i18n="about.stat1.val">100%</strong>
+            <span data-i18n="about.stat1.label">Specialty Arabica</span>
+          </div>
+          <div class="stat-item">
+            <strong data-i18n="about.stat2.val">08:00–16:00</strong>
+            <span data-i18n="about.stat2.label">All-Day Brunch</span>
+          </div>
+          <div class="stat-item">
+            <strong data-i18n="about.stat3.val">4.9 ★</strong>
+            <span data-i18n="about.stat3.label">Vendégértékelés</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Reservation Section (Sárga-fehér kiemelt doboz) -->
+  <section class="reservation-section" id="reservation">
+    <div class="container">
+      <div class="reservation-card">
+        <div class="section-header" style="margin-bottom: 2rem;">
+          <span class="section-subtitle" data-i18n="reserve.badge">ASZTALFOGLALÁS & LÁTOGATÁS</span>
+          <h2 class="section-title" data-i18n="reserve.title">Biztosítsd a helyed egy finom reggelire</h2>
+          <p class="section-desc" data-i18n="reserve.desc">Hétvégén és reggeli csúcsidőben érdemes előre asztalt foglalni. Töltsd ki az alábbi űrlapot, és azonnal rögzítjük az időpontodat!</p>
+        </div>
+
+        <form id="reservationForm" class="reservation-form">
+          <div class="form-group">
+            <label for="resName" class="form-label" data-i18n="reserve.form.name">Teljes név</label>
+            <input type="text" id="resName" class="form-input" required placeholder="Pl. Kovács Anna">
+          </div>
+
+          <div class="form-group">
+            <label for="resEmail" class="form-label" data-i18n="reserve.form.email">E-mail cím</label>
+            <input type="email" id="resEmail" class="form-input" required placeholder="anna@example.com">
+          </div>
+
+          <div class="form-group">
+            <label for="resPhone" class="form-label" data-i18n="reserve.form.phone">Telefonszám</label>
+            <input type="tel" id="resPhone" class="form-input" required placeholder="+36 30 123 4567">
+          </div>
+
+          <div class="form-group">
+            <label for="resDate" class="form-label" data-i18n="reserve.form.date">Dátum</label>
+            <input type="date" id="resDate" class="form-input" required>
+          </div>
+
+          <div class="form-group">
+            <label for="resTime" class="form-label" data-i18n="reserve.form.time">Idősáv</label>
+            <select id="resTime" class="form-select" required>
+              <option value="08:00">08:00</option>
+              <option value="09:00">09:00</option>
+              <option value="10:00" selected>10:00 (Brunch csúcs)</option>
+              <option value="11:30">11:30</option>
+              <option value="13:00">13:00</option>
+              <option value="14:30">14:30</option>
+              <option value="16:00">16:00</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="resGuests" class="form-label" data-i18n="reserve.form.guests">Személyek száma</label>
+            <select id="resGuests" class="form-select" required>
+              <option value="1">1 fő</option>
+              <option value="2" selected>2 fő</option>
+              <option value="3">3 fő</option>
+              <option value="4">4 fő</option>
+              <option value="5+">5+ fő (nagyobb társaság)</option>
+            </select>
+          </div>
+
+          <div class="form-group full-width">
+            <label for="resNotes" class="form-label" data-i18n="reserve.form.note">Megjegyzés / Ételérzékenység (opcionális)</label>
+            <textarea id="resNotes" class="form-textarea" placeholder="Pl. kutyussal érkezünk, zabtej, ablak melletti asztal..."></textarea>
+          </div>
+
+          <div class="form-submit-row">
+            <button type="submit" class="btn btn-primary" style="padding: 0.9rem 2.5rem; font-size: 1.05rem;" data-i18n="reserve.form.submit">Asztal lefoglalása</button>
+            <p style="font-size: 0.85rem; color: var(--text-muted);">
+              <span data-i18n="reserve.call">Gyors kérdésed van? Hívj minket:</span> <a href="tel:+3618904210" style="color: var(--color-yellow-700); font-weight: 700;">+36 1 890 4210</a>
+            </p>
+          </div>
+        </form>
+
+        <div id="reservationSuccess" class="form-success-msg" role="alert">
+          <p data-i18n="reserve.form.success">✨ Köszönjük! A foglalásodat rögzítettük, hamarosan találkozunk a Kafeában!</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Location & Hours Section -->
+  <section class="location-section" id="location">
+    <div class="container location-grid">
+      <div class="location-details">
+        <span class="section-subtitle" data-i18n="location.badge">HELYSZÍN & MEGKÖZELÍTÉS</span>
+        <h2 class="section-title" data-i18n="location.title">Hol találsz meg minket?</h2>
+
+        <div class="info-cards-stack">
+          <!-- Address -->
+          <div class="info-box">
+            <div class="info-icon">📍</div>
+            <div class="info-text">
+              <h4 data-i18n="location.address.title">Címünk</h4>
+              <p><strong data-i18n="location.address.val">1094 Budapest, Tűzoltó utca 33.</strong></p>
+              <p data-i18n="location.address.sub">Semmelweis Klinikák M3 metrótól 2 perc kényelmes séta</p>
+            </div>
+          </div>
+
+          <!-- Hours -->
+          <div class="info-box">
+            <div class="info-icon">⏰</div>
+            <div class="info-text">
+              <h4 data-i18n="location.hours.title">Nyitvatartás</h4>
+              <p><span data-i18n="location.hours.weekdays">Hétfő – Péntek: 07:30 – 18:00</span></p>
+              <p><span data-i18n="location.hours.weekend">Szombat – Vasárnap: 08:30 – 17:00</span></p>
+              <p style="font-size: 0.8rem; color: var(--color-yellow-700); font-weight: 600;" data-i18n="location.hours.kitchen">A melegkonyha 16:00-ig üzemel</p>
+            </div>
+          </div>
+
+          <!-- Contact -->
+          <div class="info-box">
+            <div class="info-icon">💬</div>
+            <div class="info-text">
+              <h4 data-i18n="location.contact.title">Kapcsolat</h4>
+              <p>Telefon: <a href="tel:+3618904210" style="color: var(--color-yellow-700); font-weight: 700;">+36 1 890 4210</a></p>
+              <p>E-mail: <a href="mailto:hello@kafea.hu" style="text-decoration: underline;">hello@kafea.hu</a></p>
+              <p>Instagram: <a href="https://instagram.com" target="_blank" rel="noopener" style="color: var(--color-yellow-700); font-weight: 600;">@kafea.budapest</a></p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Styled Map Card -->
+      <div class="map-wrapper">
+        <div class="map-card-placeholder">
+          <div class="map-pin-pulse">
+            <span style="font-size: 1.8rem;">☕</span>
+          </div>
+          <h3 style="font-family: var(--font-serif); font-size: 1.6rem; color: var(--color-espresso); margin-bottom: 0.5rem;">KAFEA Budapest</h3>
+          <p style="font-size: 0.95rem; color: var(--text-muted); max-width: 320px; margin-bottom: 1.5rem;">
+            1094 Budapest, Tűzoltó utca 33.<br>
+            Ferencváros, Semmelweis Klinikák metróállomástól 180 méterre.
+          </p>
+          <a href="https://maps.google.com/?q=Tuzolto+utca+Budapest" target="_blank" rel="noopener" class="btn btn-primary btn-sm">
+            Útvonaltervezés a Google Térképen ↗
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Site Footer -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <span class="brand-logo">KAFEA<span class="brand-dot"></span></span>
+          <p>Specialty kávék, napfényes lassú reggelik és prémium all-day brunch Budapest 9. kerületében, a Tűzoltó utcában.</p>
+        </div>
+
+        <div class="footer-col">
+          <h4>Gyorsmenü</h4>
+          <ul class="footer-links">
+            <li><a href="#menu">Brunch & Kávé</a></li>
+            <li><a href="#about">A Kafea Történet</a></li>
+            <li><a href="#reservation">Asztalfoglalás</a></li>
+            <li><a href="#location">Megközelítés</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>Közösség</h4>
+          <ul class="footer-links">
+            <li><a href="https://instagram.com" target="_blank" rel="noopener">Instagram</a></li>
+            <li><a href="https://facebook.com" target="_blank" rel="noopener">Facebook</a></li>
+            <li><a href="tel:+3618904210">+36 1 890 4210</a></li>
+            <li><a href="mailto:hello@kafea.hu">hello@kafea.hu</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>Nyitvatartás</h4>
+          <div class="footer-hours-list">
+            <p>Hétfő – Péntek:<br><strong>07:30 – 18:00</strong></p>
+            <p style="margin-top: 0.5rem;">Szombat – Vasárnap:<br><strong>08:30 – 17:00</strong></p>
+            <p style="margin-top: 0.5rem; color: var(--color-yellow-400); font-size: 0.8rem;">Melegkonyha: 16:00-ig</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>© 2026 Kafea Budapest. <span data-i18n="footer.rights">Minden jog fenntartva.</span></p>
+        <p>
+          <span data-i18n="footer.created">Készítette:</span>
+          <a href="https://besztweb.hu" target="_blank" rel="noopener" class="besztweb-credit">
+            Besztweb Webstúdió
+          </a>
+        </p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="i18n.js"></script>
+  <script src="main.js"></script>
+</body>
+</html>
